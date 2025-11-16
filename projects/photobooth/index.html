@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Booth - Amelia's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+            <h1>📸 A place with Memories</h1>
+            <p>Lights, camera, actions!</p>
+        </header>
+
+        <div class="photobooth-container">
+            <div class="camera-section">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas"></canvas>
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <img id="photo" alt="Captured photo">
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="strip-options">
+                    <label>Photos per strip:</label>
+                    <button class="strip-option-btn active" data-count="2">2 Photos</button>
+                    <button class="strip-option-btn" data-count="4">4 Photos</button>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="none">Original</button>
+                    <button class="filter-btn" data-filter="grayscale">B&W</button>
+                    <button class="filter-btn" data-filter="blur">Dreamy</button>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="startBtn" class="action-btn primary">Start Camera</button>
+                    <button id="flipCameraBtn" class="action-btn flip-btn" style="display: none;">⇄</button>
+                    <div class="capture-btn-container" style="display: none;" id="captureBtnContainer">
+                        <button id="captureBtn" class="action-btn secondary">📷</button>
+                    </div>
+                    <button id="retakeBtn" class="action-btn" style="display: none;">🔄 Retake</button>
+                    <button id="downloadBtn" class="action-btn" style="display: none;">💾 Download</button>
+                    <button id="newStripBtn" class="action-btn" style="display: none;">➕ New Strip</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <h3>Your Photos</h3>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Photos will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

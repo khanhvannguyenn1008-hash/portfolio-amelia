@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer - Amelia's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+            <h1>Study Session</h1>
+            <p>Stay focused and productive!</p>
+        </header>
+
+        <div class="timer-container">
+            <div class="bunny-character">
+                <div class="bunny" id="bunny">
+                    <div class="bunny-ears">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                    </div>
+                    <div class="bunny-face">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                        <div class="nose"></div>
+                        <div class="mouth"></div>
+                    </div>
+                </div>
+                <div class="status-text" id="statusText">Ready to focus?</div>
+            </div>
+
+            <div class="timer-display">
+                <div class="time" id="timeDisplay">25:00</div>
+                <div class="mode-indicator" id="modeIndicator">Focus Time</div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn start" id="startBtn">
+                    <span class="btn-icon">▶</span>
+                    <span class="btn-text">Start</span>
+                </button>
+                <button class="control-btn pause" id="pauseBtn" style="display: none;">
+                    <span class="btn-icon">⏸</span>
+                    <span class="btn-text">Pause</span>
+                </button>
+                <button class="control-btn reset" id="resetBtn">
+                    <span class="btn-icon">↻</span>
+                    <span class="btn-text">Reset</span>
+                </button>
+            </div>
+
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="focus" data-time="25">
+                    <span class="mode-name">Focus</span>
+                    <span class="mode-time">25 min</span>
+                </button>
+                <button class="mode-btn" data-mode="short" data-time="5">
+                    <span class="mode-name">Short Break</span>
+                    <span class="mode-time">5 min</span>
+                </button>
+                <button class="mode-btn" data-mode="long" data-time="15">
+                    <span class="mode-name">Long Break</span>
+                    <span class="mode-time">15 min</span>
+                </button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="focusSessions">0</div>
+                    <div class="stat-label">Focus Sessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalMinutes">0</div>
+                    <div class="stat-label">Total Minutes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="completeSound" preload="auto">
+        <!-- Bell sound will be generated via Web Audio API -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

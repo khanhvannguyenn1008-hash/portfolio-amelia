@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mood Tracker</h1>
+            <p>Being emotionally rich is a blessing</p>
+            <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+        </header>
+
+        <main>
+            <!-- Today's Entry Section -->
+            <section class="today-entry" id="todaySection">
+                <h2>How are you feeling today?</h2>
+                <div class="date-display" id="dateDisplay"></div>
+                
+                <div class="mood-selection">
+                    <button class="mood-btn" data-mood="amazing">
+                        <span class="mood-emoji">• •<br>‿</span>
+                        <span class="mood-label">Amazing</span>
+                    </button>
+                    <button class="mood-btn" data-mood="happy">
+                        <span class="mood-emoji">˘ ˘</span>
+                        <span class="mood-label">Happy</span>
+                    </button>
+                    <button class="mood-btn" data-mood="okay">
+                        <span class="mood-emoji">• _ •</span>
+                        <span class="mood-label">Okay</span>
+                    </button>
+                    <button class="mood-btn" data-mood="sad">
+                        <span class="mood-emoji">• ︵ •</span>
+                        <span class="mood-label">Sad</span>
+                    </button>
+                    <button class="mood-btn" data-mood="anxious">
+                        <span class="mood-emoji">⊙﹏⊙</span>
+                        <span class="mood-label">Anxious</span>
+                    </button>
+                </div>
+
+                <div class="entry-form" id="entryForm" style="display: none;">
+                    <textarea id="entryText" placeholder="Write about your day..."></textarea>
+                    <button id="saveBtn">Save Entry</button>
+                </div>
+
+                <div class="entry-saved" id="entrySaved" style="display: none;">
+                    <div class="saved-message">✓ Entry saved for today!</div>
+                    <button id="editBtn">Edit Entry</button>
+                </div>
+            </section>
+
+            <!-- Wrapped Section -->
+            <section class="wrapped-section">
+                <h2>Something to remember</h2>
+                <div class="wrapped-buttons">
+                    <button class="wrapped-btn" id="weeklyBtn">
+                        <span class="wrapped-icon">▪▪▪▪▪▪▪</span>
+                        <span>This Week</span>
+                    </button>
+                    <button class="wrapped-btn" id="monthlyBtn">
+                        <span class="wrapped-icon">◐</span>
+                        <span>This Month</span>
+                    </button>
+                    <button class="wrapped-btn" id="yearlyBtn">
+                        <span class="wrapped-icon">●</span>
+                        <span>This Year</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Entry History -->
+            <section class="history-section">
+                <h2>Your Journal</h2>
+                <div id="entryHistory" class="entry-history"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Wrapped Modal -->
+    <div class="modal" id="wrappedModal">
+        <div class="modal-content wrapped-display">
+            <button class="close-modal" id="closeModal">×</button>
+            <div id="wrappedContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

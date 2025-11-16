@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Games - Amelia's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+            <h1>📖 Academic Achiever</h1>
+            <p>Turn your study material into games</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-card">
+                    <div class="upload-icon">📕</div>
+                    <h2>Upload Your Study Material</h2>
+                    <p>Add text, paste links, or describe your topic</p>
+                    
+                    <div class="input-options">
+                        <button class="input-btn active" data-type="url">
+                            <span>URLs</span>
+                        </button>
+                        <button class="input-btn" data-type="text">
+                            <span>Notes</span>
+                        </button>
+                        <button class="input-btn" data-type="topic">
+                            <span>Topic</span>
+                        </button>
+                    </div>
+
+                    <div class="input-area" id="urlInput">
+                        <input type="url" id="contentUrl" placeholder="Enter YouTube URL, article link, or slide deck URL...">
+                        <small>Used for lecture slides, pdfs, youtube videos</small>
+                    </div>
+
+                    <div class="input-area" id="textInput" style="display: none;">
+                        <textarea id="contentText" placeholder="Paste your study notes, lecture content, or any text you want to learn..."></textarea>
+                        <small>Used for hand written notes</small>
+                    </div>
+
+                    <div class="input-area" id="topicInput" style="display: none;">
+                        <input type="text" id="contentTopic" placeholder="Enter a topic (e.g., 'Photosynthesis', 'World War II', 'Python basics')">
+                        <small>We'll generate questions based on general knowledge of this topic</small>
+                    </div>
+
+                    <button class="generate-btn" id="generateBtn">
+                        <span>Generate Games</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game Selection -->
+            <div class="game-selection" id="gameSelection" style="display: none;">
+                <h2>Choose Your Game</h2>
+                <div class="game-grid">
+                    <div class="game-card" data-game="quiz">
+                        <h3>Quiz Master</h3>
+                        <p>Multiple choice questions</p>
+                    </div>
+                    <div class="game-card" data-game="flashcards">
+                        <h3>Flashcards</h3>
+                        <p>Quick review cards</p>
+                    </div>
+                    <div class="game-card" data-game="matching">
+                        <h3>Match Game</h3>
+                        <p>Pair terms and definitions</p>
+                    </div>
+                    <div class="game-card" data-game="fill">
+                        <h3>Fill in the Blank</h3>
+                        <p>Complete the sentences</p>
+                    </div>
+                </div>
+                <button class="back-upload-btn" id="backToUpload">← Back to Upload</button>
+            </div>
+
+            <!-- Quiz Game -->
+            <div class="game-container quiz-game" id="quizGame" style="display: none;">
+                <div class="game-header">
+                    <h2>Quiz Master</h2>
+                    <div class="score">Score: <span id="quizScore">0</span>/<span id="quizTotal">0</span></div>
+                </div>
+                <div class="question-container">
+                    <div class="question-number" id="questionNumber">Question 1 of 5</div>
+                    <div class="question-text" id="questionText"></div>
+                    <div class="options" id="options"></div>
+                    <div class="feedback" id="feedback"></div>
+                    <button class="next-btn" id="nextBtn" style="display: none;">Next Question →</button>
+                </div>
+                <button class="game-back-btn" id="backFromQuiz">← Choose Another Game</button>
+            </div>
+
+            <!-- Flashcards Game -->
+            <div class="game-container flashcards-game" id="flashcardsGame" style="display: none;">
+                <div class="game-header">
+                    <h2>Flashcards</h2>
+                    <div class="card-counter" id="cardCounter">Card 1 of 5</div>
+                </div>
+                <div class="flashcard-container">
+                    <div class="flashcard" id="flashcard">
+                        <div class="flashcard-front" id="flashcardFront"></div>
+                        <div class="flashcard-back" id="flashcardBack"></div>
+                    </div>
+                    <p class="flip-hint">Click card to flip!</p>
+                </div>
+                <div class="flashcard-controls">
+                    <button class="nav-btn" id="prevCard">← Previous</button>
+                    <button class="nav-btn" id="nextCard">Next →</button>
+                </div>
+                <button class="game-back-btn" id="backFromFlashcards">← Choose Another Game</button>
+            </div>
+
+            <!-- Matching Game -->
+            <div class="game-container matching-game" id="matchingGame" style="display: none;">
+                <div class="game-header">
+                    <h2>Match Game</h2>
+                    <div class="score">Matches: <span id="matchScore">0</span>/<span id="matchTotal">0</span></div>
+                </div>
+                <div class="matching-grid" id="matchingGrid"></div>
+                <button class="game-back-btn" id="backFromMatching">← Choose Another Game</button>
+            </div>
+
+            <!-- Fill in the Blank Game -->
+            <div class="game-container fill-game" id="fillGame" style="display: none;">
+                <div class="game-header">
+                    <h2>Fill in the Blank</h2>
+                    <div class="score">Score: <span id="fillScore">0</span>/<span id="fillTotal">0</span></div>
+                </div>
+                <div class="fill-container">
+                    <div class="fill-number" id="fillNumber">Question 1 of 5</div>
+                    <div class="fill-sentence" id="fillSentence"></div>
+                    <input type="text" class="fill-input" id="fillInput" placeholder="Type your answer...">
+                    <button class="check-btn" id="checkFillBtn">Check Answer</button>
+                    <div class="feedback" id="fillFeedback"></div>
+                    <button class="next-btn" id="nextFillBtn" style="display: none;">Next Question →</button>
+                </div>
+                <button class="game-back-btn" id="backFromFill">← Choose Another Game</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
